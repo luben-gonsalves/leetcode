@@ -28,5 +28,7 @@ var majorityElement = function (nums) {
     }
   }
   return max;
+
+  //need to work on better solution
 };
 // @lc code=end
