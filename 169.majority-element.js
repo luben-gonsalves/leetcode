@@ -10,24 +10,21 @@
  * @return {number}
  */
 var majorityElement = function (nums) {
-  let hashMap = {};
-
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] in hashMap) {
-      hashMap[nums[i]] = hashMap[nums[i]]++;
+  let majorityElement = nums[0],
+    count = 1;
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] !== majorityElement) {
+      count--;
     } else {
-      hashMap[nums[i]] = 1;
+      count++;
+    }
+    if (count === 0) {
+      majorityElement = nums[i];
+      count++;
     }
   }
 
-  let max = 0;
-  for (let num in hashMap) {
-    let potentialMax = num / hashMap[num];
-    if (potentialMax > max) {
-      max = potentialMax;
-    }
-  }
-  return max;
+  return majorityElement;
 
   //need to work on better solution
 };
