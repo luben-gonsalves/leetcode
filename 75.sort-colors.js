@@ -10,20 +10,26 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var sortColors = function (nums) {
-  let obj = {};
-  for (let num of nums) {
-    if (num in obj) {
-      obj[num].push(num);
+  let start = 0;
+  let end = nums.length - 1;
+  let curr = 0;
+
+  while (curr <= end) {
+    if (nums[curr] === 0) {
+      [nums[start], nums[curr]] = [nums[curr], nums[start]];
+      start++;
+      curr++;
+    } else if (nums[curr] === 2) {
+      // dont increase current because swapping end might contain 0
+      [nums[end], nums[curr]] = [nums[curr], nums[end]];
+      end--;
     } else {
-      obj[num] = [num];
+      curr++;
     }
   }
 
-  let result = [];
-  for (let i = 0; i < 3; i++) {
-    result = [...result, ...obj[i]];
-  }
-
-  return result;
+  return nums;
 };
+
+console.log(sortColors([2, 0, 2, 1, 1, 0]));
 // @lc code=end

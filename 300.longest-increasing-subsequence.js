@@ -27,7 +27,6 @@ var lengthOfLIS = function (nums) {
       let j = binarSearch(resultArray, nums[i]);
       resultArray[j] = nums[i];
     }
-    console.log(resultArray);
   }
 
   return resultArray.length;

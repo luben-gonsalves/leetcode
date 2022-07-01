@@ -9,19 +9,18 @@
  * @param {number[]} nums
  * @return {number}
  */
+
 var longestConsecutive = function (nums) {
   let hashMap = {};
-
-  for (let i = 0; i < nums.length; i++) {
-    if (hashMap[nums[i]] in hashMap) {
-      hashMap[nums[i]]++;
-    } else {
-      hashMap[nums[i]] = 1;
-    }
-  }
   let max = 0;
 
+  //store all the elements in the hashmap, repitation of numbers are removed
+  for (let i = 0; i < nums.length; i++) {
+    hashMap[nums[i]] = true;
+  }
+
   for (let num in hashMap) {
+    //find  start of consecutive sequence
     if (hashMap.hasOwnProperty(parseInt(num - 1)) === false) {
       let currentMax = 1;
       let nextNum = parseInt(num) + 1;
