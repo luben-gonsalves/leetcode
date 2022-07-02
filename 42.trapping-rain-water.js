@@ -11,7 +11,6 @@
  */
 var trap = function (height) {
   let prefixMax = [height[0]];
-  let suffixMax = [height[height.length - 1]];
 
   for (let i = 1; i < height.length; i++) {
     if (prefixMax[i - 1] > height[i]) {
@@ -20,6 +19,7 @@ var trap = function (height) {
       prefixMax[i] = height[i];
     }
   }
+  
 
   
 };
