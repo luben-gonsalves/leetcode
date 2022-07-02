@@ -16,13 +16,10 @@ var sortColors = function (nums) {
 
   while (curr <= end) {
     if (nums[curr] === 0) {
-      [nums[start], nums[curr]] = [nums[curr], nums[start]];
-      start++;
-      curr++;
+      [nums[start++], nums[curr++]] = [nums[curr], nums[start]];
     } else if (nums[curr] === 2) {
       // dont increase current because swapping end might contain 0
-      [nums[end], nums[curr]] = [nums[curr], nums[end]];
-      end--;
+      [nums[end--], nums[curr]] = [nums[curr], nums[end]];
     } else {
       curr++;
     }
