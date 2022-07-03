@@ -15,8 +15,8 @@ var lengthOfLongestSubstring = function(s) {
     let hashMap = {};
 
     while(j < s.length) {
-        if(hashMap[s[j]] >= i) {
-            i = hashMap[s[j]] +1
+        if(s[j] in hashMap) {
+            i = Math.max(i,hashMap[s[j]] + 1)
         }
         hashMap[s[j]] = j;
         max = Math.max(max, j - i + 1)
